@@ -1,24 +1,21 @@
 <!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auto Close</title>
     <script>
-        window.onload = function () {
-            console.log("Closing the window...");
-            // Attempt to close the window
-            if (window.opener) {
-                window.close();
-            } else {
-                console.log("This tab cannot be closed automatically.");
-            }
-        };
+      window.onload = function () {
+        console.log("Closing the window...");
+        // Attempt to close the window
+        window.close();
+        console.log("This tab cannot be closed automatically.");
+      };
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Closing the window...</h1>
     <p>If this tab doesn't close automatically, please close it manually.</p>
-</body>
+  </body>
 </html>
