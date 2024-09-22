@@ -1,6 +1,6 @@
 [build]
-  publish = "public"  # The folder containing your index.html
-  functions = "netlify/functions"  # The folder containing the serverless function
+  publish = "public"
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/v1/redirect"

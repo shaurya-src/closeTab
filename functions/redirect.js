@@ -1,11 +1,32 @@
 // netlify/functions/redirect.js
-exports.handler = async (event, context) => {
-  // Check if the method is POST
+const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Close</title>
+    <script>
+        window.onload = function () {
+            // Attempt to close the window
+            window.close();
+            console.log("This tab cannot be closed automatically.");
+        };
+    </script>
+</head>
+<body>
+    <h1>Closing the window...</h1>
+    <p>If this tab doesn't close automatically, please close it manually.</p>
+</body>
+</html>
+`;
+
+exports.handler = async (event) => {
   if (event.httpMethod === 'POST') {
-    // Log the incoming request body
+    // Handle POST requests
     console.log("Received POST data:", event.body);
 
-    // Return a successful response but do nothing with the data
+    // Respond to POST requests
     return {
       statusCode: 200,
       headers: {
@@ -15,9 +36,12 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // If not POST, return a 405 Method Not Allowed
+  // Serve HTML for other requests
   return {
-    statusCode: 405,
-    body: "Method Not Allowed",
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'text/html',
+    },
+    body: htmlContent,
   };
 };
