@@ -32,7 +32,8 @@ exports.handler = async (event) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message: "Post request received and ignored" }),
+      // body: JSON.stringify({ message: "Post request received and ignored" }),
+      body: htmlContent,
     };
   }
 
