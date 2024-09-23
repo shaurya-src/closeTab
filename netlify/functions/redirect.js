@@ -30,7 +30,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/html',
       },
       // body: JSON.stringify({ message: "Post request received and ignored" }),
       body: htmlContent,
